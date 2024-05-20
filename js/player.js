@@ -28,27 +28,27 @@ export class Player {
     this.frameY = 0;
 
     //sprite animation speed
+    this.frameTimer = 0;
     this.maxFrame = 3;
     this.fps = 20;
     this.frameInterval = 1000 / this.fps;
-    this.frameTimer = 0;
   }
 
-  update(input) {
+  update(input, deltaTime) {
     this.currentState.handleInput(input);
     //Horizontal & Vertical Movement
     if (input.includes("ArrowRight") && !this.rightOutOfBounds()) {
       this.x += 2;
-      this.cycleFrames(input);
+      this.cycleFrames(deltaTime);
     } else if (input.includes("ArrowLeft") && !this.leftOutOfBounds()) {
       this.x -= 2;
-      this.cycleFrames();
+      this.cycleFrames(deltaTime);
     } else if (input.includes("ArrowDown") && !this.downOutOfBounds()) {
       this.y += 2;
-      this.cycleFrames();
+      this.cycleFrames(deltaTime);
     } else if (input.includes("ArrowUp") && !this.upOutOfBounds()) {
       this.y -= 2;
-      this.cycleFrames();
+      this.cycleFrames(deltaTime);
     }
 
     //Sprite Animation
@@ -67,12 +67,16 @@ export class Player {
     return this.y + this.height * this.game.scale > this.game.height;
   }
 
-  cycleFrames(input) {
-    console.log(input);
-    if (this.frameX < this.maxFrame) {
-      this.frameX += 1;
+  cycleFrames(deltaTime) {
+    if (this.frameTimer > this.frameInterval) {
+      this.frameTimer = 0;
+      if (this.frameX < this.maxFrame) {
+        this.frameX += 1;
+      } else {
+        this.frameX = 0;
+      }
     } else {
-      this.frameX = 0;
+      this.frameTimer += deltaTime;
     }
   }
 
