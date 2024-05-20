@@ -13,7 +13,6 @@ export class Player {
 
   update(input) {
     //Horizontal Movement
-
     if (input.includes("ArrowRight")) {
       this.x += 2;
     } else if (input.includes("ArrowLeft")) {

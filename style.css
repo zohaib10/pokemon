@@ -14,6 +14,14 @@
   max-height: 100%;
 }
 
-#player {
+#player,
+#grass,
+#grassrock2,
+#grassrock1,
+#grass_tree,
+#grass_tree_bushy,
+#grass_tree_small,
+#house_small,
+#floor {
   display: none;
 }
