@@ -5,8 +5,8 @@ window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
   const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth - 100;
-  canvas.height = window.innerHeight - 200;
+  canvas.width = 900;
+  canvas.height = 600;
 
   class Game {
     constructor(width, height) {
@@ -29,17 +29,13 @@ window.addEventListener("load", () => {
 
   const game = new Game(canvas.width, canvas.height);
   console.log(game);
-  let lastTime = 0;
-  function animate(timestamp) {
-    const deltaTime = timestamp - lastTime;
 
-    lastTime = timestamp;
-
+  function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.update(deltaTime);
+    game.update();
     game.draw(ctx);
     requestAnimationFrame(animate);
   }
 
-  animate(0);
+  animate();
 });
