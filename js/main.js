@@ -1,18 +1,20 @@
 import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
+import { GrassyArea } from "./grassArea.js";
 
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
   const ctx = canvas.getContext("2d");
   canvas.width = 900;
-  canvas.height = 600;
+  canvas.height = 800;
 
   class Game {
     constructor(width, height) {
       this.width = width;
       this.height = height;
       this.player = new Player(this);
+      this.grassyArea = new GrassyArea(this);
       this.input = new InputHandler();
 
       //value to scale with
@@ -23,6 +25,7 @@ window.addEventListener("load", () => {
     }
 
     draw(context) {
+      this.grassyArea.draw(context);
       this.player.draw(context);
     }
   }
