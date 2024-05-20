@@ -29,13 +29,18 @@ window.addEventListener("load", () => {
 
   const game = new Game(canvas.width, canvas.height);
   console.log(game);
+  let lastTime = 0;
 
-  function animate() {
+  function animate(timeStamp) {
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.update();
+    game.update(deltaTime);
     game.draw(ctx);
+    //requestAnimationFrame will autogenerate timestamp and passes it to the animate function
     requestAnimationFrame(animate);
   }
 
-  animate();
+  //passing 0 as initial value for timestamp
+  animate(0);
 });
