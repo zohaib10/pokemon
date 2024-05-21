@@ -104,7 +104,6 @@ window.addEventListener("load", () => {
       } else if (this.step === 2) {
         this.loadingScreen.drawWinner(context);
       } else if (this.step === 3) {
-        console.log("Lose");
       } else {
         if (!this.battleMode) {
           this.town.draw(context);
