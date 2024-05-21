@@ -35,6 +35,7 @@ export class Player {
   }
 
   update(input, deltaTime) {
+    // console.log(this.x, this.y);
     this.currentState.handleInput(input);
     //Horizontal & Vertical Movement
     if (input.includes("ArrowRight") && !this.rightOutOfBounds()) {
