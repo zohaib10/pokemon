@@ -1,17 +1,12 @@
-export class RuinsTiles {
+export class ShoreTiles {
   constructor(game) {
     this.game = game;
-    this.image = floor;
+    this.image = shore_floor;
   }
 
   draw(context) {
     const pattern = context.createPattern(this.image, "repeat");
     context.fillStyle = pattern;
-    context.fillRect(
-      this.game.width / 2,
-      0,
-      this.game.width / 2,
-      this.game.height / 2
-    );
+    context.fillRect(0, this.game.height / 2);
   }
 }

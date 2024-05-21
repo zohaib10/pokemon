@@ -5,7 +5,7 @@ export class TownTile {
   }
 
   draw(context) {
-    const pattern = context.createPattern(floor, "repeat");
+    const pattern = context.createPattern(this.image, "repeat");
     context.fillStyle = pattern;
     context.fillRect(
       this.game.width / 2,
