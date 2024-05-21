@@ -95,9 +95,9 @@ window.addEventListener("load", () => {
           this.beach.draw(context);
           this.grass.draw(context);
           this.player.draw(context);
-      } else {
+        } else {
           this.wildPokemonBattle.draw(context);
-
+        }
       }
     }
   }
