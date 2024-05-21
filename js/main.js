@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
-
+      // this.tiles = new Tile(this);
       this.town = new Town(this, canvas.width, canvas.height, this.scale);
       this.beach = new Beach(this, canvas.width, canvas.height, this.scale);
       this.snow = new Snow(this, canvas.width, canvas.height, this.scale);
@@ -31,6 +31,9 @@ window.addEventListener("load", () => {
       //value to scale with
     }
     update(deltaTime) {
+      if (this.battleMode && this.input.keys.includes("Enter")) {
+        this.battleMode = false;
+      }
       this.player.update(this.input.keys, deltaTime);
       this.grass.update(this.input.keys);
     }
@@ -42,14 +45,12 @@ window.addEventListener("load", () => {
       }
     }
 
-    unsetWildPokemonBattle() {
-      this.battleMode = false;
-    }
-
     draw(context) {
       if (!this.battleMode) {
         this.town.draw(context);
+
         this.snow.draw(context);
+
         this.beach.draw(context);
         this.grass.draw(context);
         this.player.draw(context);

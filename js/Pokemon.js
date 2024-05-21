@@ -3,18 +3,20 @@ export class Pokemon {
     this.game = game;
     this.image;
     this.height = 180;
-    this.width = 180;
+    this.width = 200;
 
-    this.x = 900;
-    this.y = 200;
+    this.x;
+    this.y;
 
     this.frameX = 0;
 
     this.step = 0;
   }
 
-  draw(context, name) {
+  draw(context, name, x, y, multipler = 1) {
     this.image = document.getElementById(name);
+    this.x = x;
+    this.y = y;
 
     context.drawImage(
       this.image,
@@ -24,8 +26,8 @@ export class Pokemon {
       this.height,
       this.x,
       this.y,
-      this.width,
-      this.height
+      this.width * multipler,
+      this.height * multipler
     );
   }
 }

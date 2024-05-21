@@ -1,14 +1,8 @@
 import { Pokemon } from "./Pokemon.js";
+import { Battle } from "./battle.js";
 
-class Battle {
-  constructor(type) {
-    this.type = type;
-  }
-}
-
-export class WildPokemonBattle extends Battle {
+export class WildPokemonBattle {
   constructor(game) {
-    super("wild-pokemon");
     this.name;
     this.game = game;
     this.area;
@@ -19,6 +13,8 @@ export class WildPokemonBattle extends Battle {
     this.splash2 = splash2;
     this.step = 0;
     this.pokemon = new Pokemon(this.game);
+
+    this.battle = new Battle(this.game);
   }
 
   setName(name) {
@@ -95,7 +91,10 @@ export class WildPokemonBattle extends Battle {
       );
       if (this.name) {
         console.log(this.name);
-        this.pokemon.draw(context, this.name);
+        this.pokemon.draw(context, this.name, 900, 200);
+        this.pokemon.draw(context, "charizard", 300, 400, 2);
+
+        this.battle.draw(context, "charizard", this.name);
       }
     }
   }

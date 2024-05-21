@@ -3,7 +3,7 @@ export const spawnChance = {
     { name: "pouch", upper: 50, lower: 46 },
     { name: "larvea", upper: 35, lower: 32 },
     { name: "cleaf", upper: 23, lower: 20 },
-    { name: "dream", upper: 17, lower: 16 },
+    { name: "draem", upper: 17, lower: 16 },
     { name: "gulfin", upper: 14, lower: 13 },
     { name: "ivieron", upper: 8, lower: 7 },
     { name: "pluma", upper: 5, lower: 4 },
