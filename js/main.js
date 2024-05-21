@@ -73,6 +73,9 @@ window.addEventListener("load", () => {
         this.wildPokemonBattle.resetSteps();
         this.battleMode = false;
       }
+      if (this.battleMode) {
+        this.wildPokemonBattle.update(deltaTime);
+      }
 
       this.player.update(this.input.keys, deltaTime);
       this.grass.update(this.input.keys);
