@@ -4,10 +4,9 @@ import { Grass } from "./grassArea.js";
 
 import { WildPokemonBattle } from "./pokemonBattle.js";
 
-
 import { Town } from "./town.js";
 import { Beach } from "./beach.js";
-
+import { Snow } from "./snow.js";
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
@@ -24,10 +23,11 @@ window.addEventListener("load", () => {
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
-      // this.tiles = new Tile(this);
+
       this.town = new Town(this, canvas.width, canvas.height, this.scale);
       this.beach = new Beach(this, canvas.width, canvas.height, this.scale);
-
+      this.snow = new Snow(this, canvas.width, canvas.height, this.scale);
+      this.wildPokemonBattle = new WildPokemonBattle(this);
       //value to scale with
     }
     update(deltaTime) {
@@ -48,10 +48,11 @@ window.addEventListener("load", () => {
 
     draw(context) {
       if (!this.battleMode) {
-         this.town.draw(context);
-      this.beach.draw(context);
-      this.grass.draw(context);
-      this.player.draw(context);
+        this.town.draw(context);
+        this.snow.draw(context);
+        this.beach.draw(context);
+        this.grass.draw(context);
+        this.player.draw(context);
       } else {
         this.wildPokemonBattle.draw(context);
       }

@@ -14,7 +14,16 @@
   max-height: 100%;
 }
 
+#snow_floor,
+#teal_tree_bushy,
+#teal_tree_small,
+#teal_tree,
+#ice_tree,
+#icerock1,
+#icerock2,
 #dirt_town_tile,
+#beach_floor,
+#shore_floor,
 #player,
 #grass,
 #grassrock2,
@@ -34,6 +43,11 @@
 #sandrock1,
 #sandrock2,
 #grassice,
+#splash,
+#splash0,
+#splash1,
+#splash2,
+#atrox,
 #world {
   display: none;
 }
