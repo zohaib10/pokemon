@@ -1,6 +1,9 @@
 import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Grass } from "./grassArea.js";
+
+import { WildPokemonBattle } from "./pokemonBattle.js";
+
 import { Town } from "./town.js";
 import { Beach } from "./beach.js";
 import { Snow } from "./snow.js";
@@ -16,6 +19,7 @@ window.addEventListener("load", () => {
       this.width = width;
       this.height = height;
       this.scale = scale;
+
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
@@ -27,15 +31,30 @@ window.addEventListener("load", () => {
     }
     update(deltaTime) {
       this.player.update(this.input.keys, deltaTime);
-      this.grass.update();
+      this.grass.update(this.input.keys);
+    }
+
+    setWildPokemonBattle(name) {
+      if (!this.battleMode) {
+        this.wildPokemonBattle.setName(name);
+        this.battleMode = true;
+      }
+    }
+
+    unsetWildPokemonBattle() {
+      this.battleMode = false;
     }
 
     draw(context) {
-      this.snow.draw(context);
-      this.town.draw(context);
-      this.beach.draw(context);
-      this.grass.draw(context);
-      this.player.draw(context);
+      if (!this.battleMode) {
+        this.town.draw(context);
+        this.snow.draw(context);
+        this.beach.draw(context);
+        this.grass.draw(context);
+        this.player.draw(context);
+      } else {
+        this.wildPokemonBattle.draw(context);
+      }
     }
   }
 
@@ -46,8 +65,8 @@ window.addEventListener("load", () => {
     const deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.update(deltaTime);
     game.draw(ctx);
+    game.update(deltaTime, ctx);
     //requestAnimationFrame will autogenerate timestamp and passes it to the animate function
     requestAnimationFrame(animate);
   };

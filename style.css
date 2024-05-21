@@ -35,6 +35,8 @@
 #hospital,
 #house_small_alt,
 #floor,
+#grassice,
+#forest,
 #palm,
 #palm_alt,
 #palm_small,
@@ -47,4 +49,8 @@
 
 #player {
   z-index: 1000;
+}
+
+.pokemon {
+  display: none;
 }

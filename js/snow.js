@@ -37,20 +37,6 @@ export class Snow {
       this.width - 50,
       this.height - 150
     );
-    // this.palmTree2 = new Wall(scale, palm, this.width - 400, this.height + 100);
-    // this.palmTreeAlt2 = new Wall(
-    //   scale,
-    //   palm_alt,
-    //   this.width - 400,
-    //   this.height + 300
-    // );
-
-    // this.palmTreeSmall2 = new Wall(
-    //   scale,
-    //   palm_small,
-    //   this.width - 350,
-    //   this.height
-    // );
   }
 
   draw(context) {
