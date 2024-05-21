@@ -7,7 +7,11 @@ import { WildPokemonBattle } from "./pokemonBattle.js";
 import { Town } from "./town.js";
 import { Beach } from "./beach.js";
 import { Snow } from "./snow.js";
+
+import { LoadingScreen } from "./loadingScreen.js";
+
 import { Ruins } from "./ruins.js";
+
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
@@ -15,11 +19,34 @@ window.addEventListener("load", () => {
   canvas.width = 1400;
   canvas.height = 800;
 
+  const pokemon = [
+    "atrox",
+    "charmadillo",
+    "cindrill",
+    "cleaf",
+    "draem",
+    "finiette",
+    "finsta",
+    "friolera",
+    "gulfin",
+    "ivieron",
+    "jacana",
+    "larvea",
+    "pluma",
+    "plumette",
+    "pouch",
+    "sparchu",
+  ];
+
   class Game {
     constructor(width, height, scale) {
       this.width = width;
       this.height = height;
       this.scale = scale;
+
+      this.step = 0;
+
+      this.pokemonToFind = pokemon[Math.floor(Math.random() * 16)];
 
       this.player = new Player(this);
       this.grass = new Grass(this);
@@ -31,9 +58,13 @@ window.addEventListener("load", () => {
       this.ruins = new Ruins(this, canvas.width, canvas.height, this.scale);
 
       this.wildPokemonBattle = new WildPokemonBattle(this);
-      //value to scale with
+      this.loadingScreen = new LoadingScreen(this, this.pokemonToFind);
     }
     update(deltaTime) {
+      if (this.step === 1 && this.input.keys.includes(" ")) {
+        this.step = 2;
+      }
+
       if (this.battleMode && this.input.keys.includes("Enter")) {
         this.battleMode = false;
       }
@@ -49,16 +80,24 @@ window.addEventListener("load", () => {
     }
 
     draw(context) {
-      if (!this.battleMode) {
-        this.town.draw(context);
-
-        this.snow.draw(context);
-        this.ruins.draw(context);
-        this.beach.draw(context);
-        this.grass.draw(context);
-        this.player.draw(context);
+      if (this.step === 0) {
+        this.loadingScreen.draw(context, this.step);
+        setTimeout(() => {
+          this.step = 1;
+        }, 1000);
+      } else if (this.step === 1) {
+        this.loadingScreen.draw(context, this.step);
       } else {
-        this.wildPokemonBattle.draw(context);
+        if (!this.battleMode) {
+          this.town.draw(context);
+          this.snow.draw(context);
+          this.ruins.draw(context);
+          this.beach.draw(context);
+          this.grass.draw(context);
+          this.player.draw(context);
+      } else {
+          this.wildPokemonBattle.draw(context);
+
       }
     }
   }
