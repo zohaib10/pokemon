@@ -9,8 +9,8 @@ export class Player {
     this.image = player;
 
     //coordinates
-    this.x = this.game.width / 2 - this.width;
-    this.y = this.game.height / 2 - this.height;
+    this.x = 1215;
+    this.y = 520;
 
     // Player States
     this.states = [

@@ -27,7 +27,12 @@ export class Town {
       this.height - 150
     );
 
-    this.house = new Wall(scale, house_small, this.width, this.height);
+    this.house = new Wall(
+      scale,
+      house_small,
+      this.width + 150,
+      this.height - 200
+    );
     this.houseTree = new Wall(scale, grass_tree, this.width - 100, this.height);
     this.houseBushyTree = new Wall(
       scale,

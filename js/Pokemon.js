@@ -14,8 +14,8 @@ export class Pokemon {
 
     //sprite animation speed
     this.maxFrame = 3;
-    this.fps = 20;
-    this.frameInterval = 1000 / (this.fps * 0.5);
+    this.fps = 5;
+    this.frameInterval = 1000 / this.fps;
     this.frameTimer = 0;
   }
 
@@ -59,7 +59,7 @@ export class Pokemon {
     context.drawImage(
       this.image,
       this.frameX * this.width,
-      0,
+      1,
       this.width,
       this.height,
       this.x,
