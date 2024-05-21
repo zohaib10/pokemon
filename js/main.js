@@ -13,9 +13,10 @@ window.addEventListener("load", () => {
   canvas.height = 800;
 
   class Game {
-    constructor(width, height) {
+    constructor(width, height, scale) {
       this.width = width;
       this.height = height;
+      this.scale = scale;
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
@@ -63,8 +64,6 @@ window.addEventListener("load", () => {
       // this.tree = new Wall(this, house_small);
       this.house = new Wall(this, house_small);
       //value to scale with
-
-      this.scale = 0.5;
     }
     update(deltaTime) {
       this.player.update(this.input.keys, deltaTime);
@@ -88,7 +87,7 @@ window.addEventListener("load", () => {
     }
   }
 
-  const game = new Game(canvas.width, canvas.height);
+  const game = new Game(canvas.width, canvas.height, 0.5);
   let lastTime = 0;
 
   function animate(timeStamp) {
