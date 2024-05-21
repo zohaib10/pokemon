@@ -27,3 +27,7 @@
 #floor {
   display: none;
 }
+
+#player {
+  z-index: 1000;
+}
