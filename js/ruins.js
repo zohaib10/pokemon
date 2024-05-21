@@ -8,11 +8,11 @@ export class Ruins {
     this.height = height / 2;
     this.ruinTiles = new RuinsTiles(game);
 
-    this.grassDitch = new Wall(
+    this.grassGym = new Wall(
       scale,
-      grass_ditch,
-      this.width + 200,
-      this.height - 300
+      grass_gym,
+      this.width + 100,
+      this.height - 400
     );
     this.grassMountainAlt = new Wall(
       scale,
@@ -49,7 +49,7 @@ export class Ruins {
     this.ruinPillarBroke2 = new Wall(
       scale,
       ruin_pillar_broke,
-      this.width + 100,
+      this.width + 50,
       this.height - 200
     );
 
@@ -70,7 +70,7 @@ export class Ruins {
 
   draw(context) {
     this.ruinTiles.draw(context);
-    this.grassDitch.draw(context);
+    this.grassGym.draw(context);
     this.grassMountainAlt.draw(context);
     this.grassMountainSmall.draw(context);
     this.ruinGate.draw(context);
