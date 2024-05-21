@@ -1,5 +1,7 @@
 # Avail Monster Hunt: A Professor's Pursuit
 
+[Play online](https://zohaib10.github.io/pokemon/)
+
 In "Avail Monster Hunt: Professor's Pursuit," you play as a professor-in-training tasked with finding a specific rare pocket monster assigned to you. Your mission is to travel through diverse landscapes, walk through the tall grass, and track down your assigned monster.
 
 Your ultimate goal is to find the specific pocket monster assigned to you. Successfully locating and find this creature will mark your victory and prove your prowess as a distinguished professor in the world of pocket monsters. Can you complete your assignment and achieve academic glory?
