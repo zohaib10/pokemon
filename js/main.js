@@ -2,7 +2,7 @@ import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Tile } from "./tile.js";
 import { Wall } from "./wall.js";
-import { WallLayer } from "./wallLayer.js";
+import { GrassyArea } from "./grassArea.js";
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
@@ -78,11 +78,10 @@ window.addEventListener("load", () => {
     }
 
     draw(context) {
+      this.tiles.draw(context);
+      this.drawWallLayer();
       this.grassyArea.draw(context);
       this.player.draw(context);
-      this.house.draw(context);
-      this.tiles.draw(context);
-      // this.tree.draw(context);
     }
   }
 
