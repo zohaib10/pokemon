@@ -14,6 +14,7 @@
   max-height: 100%;
 }
 
+#dirt_town_tile,
 #player,
 #grass,
 #grassrock2,
@@ -25,7 +26,13 @@
 #hospital,
 #house_small_alt,
 #floor,
-#grassice {
+#palm,
+#palm_alt,
+#palm_small,
+#sandrock1,
+#sandrock2,
+#grassice,
+#world {
   display: none;
 }
 
