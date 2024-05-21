@@ -32,4 +32,12 @@ export const spawnChance = {
     { name: "finsta", upper: 63, lower: 61 },
     { name: "finiette", upper: 68, lower: 66 },
   ],
+  celadon: [
+    { name: "cindrill", upper: 22, lower: 23 },
+    { name: "draem", upper: 2, lower: 1 },
+    { name: "jacana", upper: 29, lower: 26 },
+    { name: "gulfin", upper: 54, lower: 51 },
+    { name: "larvea", upper: 63, lower: 61 },
+    { name: "sparchu", upper: 67, lower: 66 },
+  ],
 };

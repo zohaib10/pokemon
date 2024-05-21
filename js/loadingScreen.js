@@ -14,6 +14,10 @@ export class LoadingScreen {
     // this.fps = 800;
   }
 
+  update(deltaTime) {
+    this.pokemon.update(deltaTime);
+  }
+
   typeWriter(context, text, font, heightAdjuster = 3, widthAdjuster = 3) {
     if (!text) {
       return;

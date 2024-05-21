@@ -6,8 +6,9 @@ export class Grass {
 
     this.pallet = new GrassyArea("pallet", this.game, 5, 3, grass);
     this.littleroot = new GrassyArea("littleroot", this.game, 3, 6, grass);
-    this.twinleaf = new GrassyArea("twinleaf", this.game, 3, 3, grassice);
+    this.twinleaf = new GrassyArea("twinleaf", this.game, 6, 4, grassice);
     this.azalea = new GrassyArea("azalea", this.game, 3, 3, grass);
+    this.celadon = new GrassyArea("celadon", this.game, 7, 3, grass);
   }
 
   update(input) {
@@ -15,6 +16,7 @@ export class Grass {
     this.littleroot.update(input);
     this.twinleaf.update(input);
     this.azalea.update(input);
+    this.celadon.update(input);
   }
 
   draw(context) {
@@ -22,6 +24,7 @@ export class Grass {
     this.littleroot.draw(context, 1100, 300);
     this.twinleaf.draw(context, 100, 100);
     this.azalea.draw(context, 100, 500);
+    this.celadon.draw(context, 1298, 1);
   }
 }
 

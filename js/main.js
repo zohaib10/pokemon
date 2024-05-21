@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
       if (this.battleMode) {
         this.wildPokemonBattle.update(deltaTime);
       }
-
+      this.loadingScreen.update(deltaTime);
       this.player.update(this.input.keys, deltaTime);
       this.grass.update(this.input.keys);
     }
