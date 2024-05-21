@@ -1,24 +1,27 @@
+import { PokemonSpawn } from "./pokemonSpawn.js";
+
 export class Grass {
   constructor(game) {
     this.game = game;
-    this.area1 = new GrassyArea("area1", this.game, 5, 3, grass);
-    this.area2 = new GrassyArea("area2", this.game, 3, 6, grass);
-    this.area3 = new GrassyArea("area3", this.game, 3, 3, grassice);
-    this.area4 = new GrassyArea("area4", this.game, 3, 3, grass);
+
+    this.pallet = new GrassyArea("pallet", this.game, 5, 3, grass);
+    this.littleroot = new GrassyArea("littleroot", this.game, 3, 6, grass);
+    this.twinleaf = new GrassyArea("twinleaf", this.game, 3, 3, grassice);
+    this.azalea = new GrassyArea("azalea", this.game, 3, 3, grass);
   }
 
-  update() {
-    this.area1.update();
-    this.area2.update();
-    this.area3.update();
-    this.area4.update();
+  update(input) {
+    this.pallet.update(input);
+    this.littleroot.update(input);
+    this.twinleaf.update(input);
+    this.azalea.update(input);
   }
 
   draw(context) {
-    this.area1.draw(context, 400, 578);
-    this.area2.draw(context, 1100, 300);
-    this.area3.draw(context, 100, 100);
-    this.area4.draw(context, 100, 500);
+    this.pallet.draw(context, 400, 578);
+    this.littleroot.draw(context, 1100, 300);
+    this.twinleaf.draw(context, 100, 100);
+    this.azalea.draw(context, 100, 500);
   }
 }
 
@@ -27,8 +30,7 @@ export class GrassyArea {
     this.game = game;
     this.name = name;
     this.image = image;
-
-    console.log(this);
+    this.pokemonSpawn = new PokemonSpawn(this.game);
 
     //image dimensions
     this.width = this.image.width * this.game.scale;
@@ -46,7 +48,7 @@ export class GrassyArea {
     this.endY;
   }
 
-  update() {
+  update(input) {
     const playerXCoords = this.game.player.x;
     const playerYCoords = this.game.player.y;
 
@@ -56,7 +58,7 @@ export class GrassyArea {
       playerYCoords >= this.y &&
       playerYCoords <= this.endY
     ) {
-      console.log("Player is within ", this.name);
+      this.pokemonSpawn.spawnChance(this.name, input);
     }
   }
 
