@@ -1,5 +1,5 @@
 export class Wall {
-  constructor(game, object) {
+  constructor(game, object, x, y) {
     this.game = game;
     this.height = object.height;
     this.width = object.width;
@@ -7,8 +7,8 @@ export class Wall {
     this.image = object;
 
     //coordinates
-    this.x = this.game.width / 2 - this.width;
-    this.y = this.game.height / 2 - this.height;
+    this.x = x || this.game.width - this.width;
+    this.y = y || this.game.height - this.height;
   }
 
   draw(context) {
