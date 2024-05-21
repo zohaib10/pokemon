@@ -1,6 +1,5 @@
 import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
-import { GrassyArea } from "./grassArea.js";
 
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
@@ -16,7 +15,8 @@ window.addEventListener("load", () => {
       this.player = new Player(this);
       this.grassyArea = new GrassyArea(this);
       this.input = new InputHandler();
-
+      // this.tree = new Wall(this, house_small);
+      this.house = new Wall(this, house_small);
       //value to scale with
       this.scale = 0.5;
     }
@@ -27,12 +27,15 @@ window.addEventListener("load", () => {
     draw(context) {
       this.grassyArea.draw(context);
       this.player.draw(context);
+      this.house.draw(context);
+      // this.tree.draw(context);
     }
   }
 
   const game = new Game(canvas.width, canvas.height);
-  console.log(game);
   let lastTime = 0;
+  function animate(timestamp) {
+    const deltaTime = timestamp - lastTime;
 
   function animate(timeStamp) {
     const deltaTime = timeStamp - lastTime;
