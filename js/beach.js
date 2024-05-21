@@ -6,6 +6,7 @@ export class Beach {
     this.height = (height * 2) / 4;
 
     this.beachTiles = new BeachTiles(game);
+    this.shoreTiles = new Wall(scale, shore_floor, 0, height / 2);
     this.palmTree = new Wall(scale, palm, this.width - 200, this.height + 100);
     this.palmTreeAlt = new Wall(scale, palm_alt, this.width - 100, this.height);
     this.palmTreeSmall = new Wall(
@@ -32,6 +33,7 @@ export class Beach {
 
   draw(context) {
     this.beachTiles.draw(context);
+    this.shoreTiles.draw(context);
     this.palmTree.draw(context);
     this.palmTreeSmall.draw(context);
     this.palmTreeAlt.draw(context);
