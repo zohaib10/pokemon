@@ -1,27 +1,26 @@
 export class Wall {
-  constructor(game, object, x, y) {
-    this.game = game;
+  constructor(scale, object, x, y) {
+    this.image = object;
     this.height = object.height;
     this.width = object.width;
-
-    this.image = object;
+    this.scale = scale;
 
     //coordinates
-    this.x = x || this.game.width - this.width;
-    this.y = y || this.game.height - this.height;
+    this.x = x;
+    this.y = y;
   }
 
   draw(context) {
     context.drawImage(
       this.image,
-      0,
-      0,
-      this.width,
-      this.height,
       this.x,
       this.y,
-      this.width * this.game.scale,
-      this.height * this.game.scale
+      this.width * this.scale,
+      this.height * this.scale
+      // this.x,
+      // this.y,
+      // this.width * this.scale,
+      // this.height * this.scale
     );
   }
 }
