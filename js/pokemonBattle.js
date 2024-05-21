@@ -17,6 +17,10 @@ export class WildPokemonBattle {
     this.battle = new Battle(this.game);
   }
 
+  update(deltaTime) {
+    this.pokemon.update(deltaTime);
+  }
+
   setName(name) {
     this.name = name;
   }
@@ -92,8 +96,9 @@ export class WildPokemonBattle {
         this.game.height
       );
       if (this.name) {
+        console.log("Pokemon ", this.name);
         this.pokemon.draw(context, this.name, 900, 200);
-        this.pokemon.draw(context, "charizard", 300, 400, 2);
+        this.pokemon.drawStaticPokemon(context, "charizard", 300, 400, 2);
 
         this.battle.draw(context, "charizard", this.name);
       }

@@ -15,6 +15,10 @@ export class LoadingScreen {
   }
 
   typeWriter(context, text, font, heightAdjuster = 3, widthAdjuster = 3) {
+    if (!text) {
+      return;
+    }
+
     this.char = text.substr(0, this.index) + "_";
     context.fillStyle = "#fff";
     context.font = font;
