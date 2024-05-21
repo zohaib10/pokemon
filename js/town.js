@@ -7,6 +7,7 @@ export class Town {
     this.height = (height * 3) / 4;
 
     this.tile = new TownTile(game);
+
     this.dirtTile = new Wall(
       scale,
       dirt_town_tile,
