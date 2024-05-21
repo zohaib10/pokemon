@@ -32,6 +32,11 @@ export class Battle {
 
     context.fillStyle = "white";
     context.font = "20px Arial";
-    context.fillText("Press Enter to Run", 600, 700);
+
+    if (this.enemeyPokemonName === this.game.pokemonToFind) {
+      context.fillText("You found it! Press enter", 600, 700);
+    } else {
+      context.fillText("Press Enter to Run", 600, 700);
+    }
   }
 }

@@ -62,12 +62,18 @@ window.addEventListener("load", () => {
     }
     update(deltaTime) {
       if (this.step === 1 && this.input.keys.includes(" ")) {
-        this.step = 2;
+        this.step = 4;
       }
 
       if (this.battleMode && this.input.keys.includes("Enter")) {
+        if (this.wildPokemonBattle.name === this.pokemonToFind) {
+          this.step = 2;
+        }
+
+        this.wildPokemonBattle.resetSteps();
         this.battleMode = false;
       }
+
       this.player.update(this.input.keys, deltaTime);
       this.grass.update(this.input.keys);
     }
@@ -79,6 +85,14 @@ window.addEventListener("load", () => {
       }
     }
 
+    setWinningStep() {
+      this.step = 2;
+    }
+
+    setLosingStep() {
+      this.step = 3;
+    }
+
     draw(context) {
       if (this.step === 0) {
         this.loadingScreen.draw(context, this.step);
@@ -87,6 +101,10 @@ window.addEventListener("load", () => {
         }, 1000);
       } else if (this.step === 1) {
         this.loadingScreen.draw(context, this.step);
+      } else if (this.step === 2) {
+        this.loadingScreen.drawWinner(context);
+      } else if (this.step === 3) {
+        console.log("Lose");
       } else {
         if (!this.battleMode) {
           this.town.draw(context);

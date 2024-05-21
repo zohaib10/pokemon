@@ -58,6 +58,7 @@ export class GrassyArea {
       playerYCoords >= this.y &&
       playerYCoords <= this.endY
     ) {
+      console.log("Im in ", this.name);
       this.pokemonSpawn.spawnChance(this.name, input);
     }
   }

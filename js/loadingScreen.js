@@ -8,6 +8,9 @@ export class LoadingScreen {
     this.pokemon = new Pokemon(this.game);
     this.index = 1;
     this.char;
+
+    this.winner = winner;
+    this.loser = loser;
     // this.fps = 800;
   }
 
@@ -24,6 +27,28 @@ export class LoadingScreen {
       setTimeout(this.typeWriter, 2000);
       this.index++;
     }
+  }
+
+  drawWinner(context) {
+    context.drawImage(
+      this.winner,
+      0,
+      0,
+      this.winner.width,
+      this.winner.height,
+      0,
+      0,
+      this.game.width,
+      this.game.height
+    );
+
+    this.typeWriter(
+      context,
+      "Winner!! nicely done! refresh to play again",
+      "40px sans-serif",
+      1.2,
+      4
+    );
   }
 
   draw(context, step) {

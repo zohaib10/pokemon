@@ -21,7 +21,9 @@ export class WildPokemonBattle {
     this.name = name;
   }
 
-  update() {}
+  resetSteps() {
+    this.step = 0;
+  }
 
   transition(context) {
     if (this.step === 0) {
@@ -90,7 +92,6 @@ export class WildPokemonBattle {
         this.game.height
       );
       if (this.name) {
-        console.log(this.name);
         this.pokemon.draw(context, this.name, 900, 200);
         this.pokemon.draw(context, "charizard", 300, 400, 2);
 

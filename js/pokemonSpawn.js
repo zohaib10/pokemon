@@ -20,6 +20,6 @@ export class PokemonSpawn {
   }
 
   getSpawnValue() {
-    return Math.random() * 1000;
+    return Math.random() * 10000;
   }
 }
