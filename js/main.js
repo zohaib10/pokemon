@@ -11,10 +11,10 @@ window.addEventListener("load", () => {
   canvas.height = 800;
 
   class Game {
-    constructor(width, height) {
-      this.scale = 0.5;
+    constructor(width, height, scale) {
       this.width = width;
       this.height = height;
+      this.scale = scale;
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
     }
   }
 
-  const game = new Game(canvas.width, canvas.height);
+  const game = new Game(canvas.width, canvas.height, 0.5);
   let lastTime = 0;
 
   const animate = (timeStamp) => {

@@ -34,7 +34,7 @@ export class Rest extends State {
       this.player.setState(states.DOWN);
     }
     if (input.includes("ArrowUp")) {
-      this.player.setState(states.Up);
+      this.player.setState(states.UP);
     }
   }
 }
