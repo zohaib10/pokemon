@@ -1,14 +1,17 @@
-export class Tile {
+export class TownTile {
   constructor(game) {
     this.game = game;
-    this.height = 50;
-    this.width = 50;
     this.image = floor;
   }
 
   draw(context) {
     const pattern = context.createPattern(floor, "repeat");
     context.fillStyle = pattern;
-    context.fillRect(0, 0, this.game.width, this.game.height);
+    context.fillRect(
+      this.game.width / 2,
+      this.game.height / 2,
+      this.game.width,
+      this.game.height
+    );
   }
 }
