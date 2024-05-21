@@ -27,6 +27,7 @@ window.addEventListener("load", () => {
       this.town = new Town(this, canvas.width, canvas.height, this.scale);
       this.beach = new Beach(this, canvas.width, canvas.height, this.scale);
       this.snow = new Snow(this, canvas.width, canvas.height, this.scale);
+      this.wildPokemonBattle = new WildPokemonBattle(this);
       //value to scale with
     }
     update(deltaTime) {
