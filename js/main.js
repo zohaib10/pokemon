@@ -2,12 +2,14 @@ import { Player } from "./player.js";
 import { InputHandler } from "./input.js";
 import { Tile } from "./tile.js";
 import { Wall } from "./wall.js";
-import { GrassyArea } from "./grassArea.js";
+
+import { Grass } from "./grassArea.js";
+
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
   const ctx = canvas.getContext("2d");
-  canvas.width = 900;
+  canvas.width = 1400;
   canvas.height = 800;
 
   class Game {
@@ -15,7 +17,7 @@ window.addEventListener("load", () => {
       this.width = width;
       this.height = height;
       this.player = new Player(this);
-      this.grassyArea = new GrassyArea(this);
+      this.grass = new Grass(this);
       this.input = new InputHandler();
       this.tiles = new Tile(this);
 
@@ -66,6 +68,7 @@ window.addEventListener("load", () => {
     }
     update(deltaTime) {
       this.player.update(this.input.keys, deltaTime);
+      this.grass.update();
     }
 
     drawWallLayer() {
@@ -80,7 +83,7 @@ window.addEventListener("load", () => {
     draw(context) {
       this.tiles.draw(context);
       this.drawWallLayer();
-      this.grassyArea.draw(context);
+      this.grass.draw(context);
       this.player.draw(context);
     }
   }
