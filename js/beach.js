@@ -30,10 +30,9 @@ export class Beach {
       this.height
     );
   }
-
   draw(context) {
     this.beachTiles.draw(context);
-    this.shoreTiles.draw(context);
+    // this.shoreTiles.draw(context);
     this.palmTree.draw(context);
     this.palmTreeSmall.draw(context);
     this.palmTreeAlt.draw(context);

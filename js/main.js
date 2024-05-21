@@ -7,6 +7,7 @@ import { WildPokemonBattle } from "./pokemonBattle.js";
 import { Town } from "./town.js";
 import { Beach } from "./beach.js";
 import { Snow } from "./snow.js";
+import { Ruins } from "./ruins.js";
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
 
@@ -23,10 +24,12 @@ window.addEventListener("load", () => {
       this.player = new Player(this);
       this.grass = new Grass(this);
       this.input = new InputHandler();
-      // this.tiles = new Tile(this);
+
       this.town = new Town(this, canvas.width, canvas.height, this.scale);
       this.beach = new Beach(this, canvas.width, canvas.height, this.scale);
       this.snow = new Snow(this, canvas.width, canvas.height, this.scale);
+      this.ruins = new Ruins(this, canvas.width, canvas.height, this.scale);
+
       this.wildPokemonBattle = new WildPokemonBattle(this);
       //value to scale with
     }
@@ -50,7 +53,7 @@ window.addEventListener("load", () => {
         this.town.draw(context);
 
         this.snow.draw(context);
-
+        this.ruins.draw(context);
         this.beach.draw(context);
         this.grass.draw(context);
         this.player.draw(context);
