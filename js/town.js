@@ -9,18 +9,21 @@ export class Town {
     this.tile = new TownTile(game);
 
     this.dirtTile = new Wall(
+      this.game,
       scale,
       dirt_town_tile,
       this.width,
       this.height - 150
     );
     this.dirtTile2 = new Wall(
+      this.game,
       scale,
       dirt_town_tile,
       this.width - 100,
       this.height - 150
     );
     this.dirtTile3 = new Wall(
+      this.game,
       scale,
       dirt_town_tile,
       this.width - 200,
@@ -28,13 +31,21 @@ export class Town {
     );
 
     this.house = new Wall(
+      this.game,
       scale,
       house_small,
       this.width + 150,
       this.height - 200
     );
-    this.houseTree = new Wall(scale, grass_tree, this.width - 100, this.height);
+    this.houseTree = new Wall(
+      this.game,
+      scale,
+      grass_tree,
+      this.width - 100,
+      this.height
+    );
     this.houseBushyTree = new Wall(
+      this.game,
       scale,
       grass_tree_bushy,
       this.width - 150,
@@ -42,10 +53,20 @@ export class Town {
     );
 
     this.houseTreeSmall = new Wall(
+      this.game,
       scale,
       grass_tree_small,
       this.width - 200,
       this.height
+    );
+  }
+
+  collide(newX, newY) {
+    return (
+      this.house.collide(newX, newY, 2.4, 7.4, 5.5) ||
+      this.houseTree.collide(newX, newY) ||
+      this.houseBushyTree.collide(newX, newY) ||
+      this.houseTreeSmall.collide(newX, newY, 6, 1.4, 3, 2)
     );
   }
 

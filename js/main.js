@@ -59,7 +59,11 @@ window.addEventListener("load", () => {
 
       this.wildPokemonBattle = new WildPokemonBattle(this);
       this.loadingScreen = new LoadingScreen(this, this.pokemonToFind);
+      this.collide = (newX, newY) => {
+        return this.beach.collide(newX, newY) || this.town.collide(newX, newY);
+      };
     }
+
     update(deltaTime) {
       if (this.step === 1 && this.input.keys.includes(" ")) {
         this.step = 4;
@@ -77,7 +81,7 @@ window.addEventListener("load", () => {
         this.wildPokemonBattle.update(deltaTime);
       }
       this.loadingScreen.update(deltaTime);
-      this.player.update(this.input.keys, deltaTime);
+      this.player.update(this.input.keys, deltaTime, this.collide());
       this.grass.update(this.input.keys);
     }
 

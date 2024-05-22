@@ -37,16 +37,32 @@ export class Player {
   update(input, deltaTime) {
     this.currentState.handleInput(input);
     //Horizontal & Vertical Movement
-    if (input.includes("ArrowRight") && !this.rightOutOfBounds()) {
+    if (
+      input.includes("ArrowRight") &&
+      !this.rightOutOfBounds() &&
+      !this.game.collide(this.x + 2, this.y)
+    ) {
       this.x += 2;
       this.cycleFrames(deltaTime);
-    } else if (input.includes("ArrowLeft") && !this.leftOutOfBounds()) {
+    } else if (
+      input.includes("ArrowLeft") &&
+      !this.leftOutOfBounds() &&
+      !this.game.collide(this.x - 2, this.y)
+    ) {
       this.x -= 2;
       this.cycleFrames(deltaTime);
-    } else if (input.includes("ArrowDown") && !this.downOutOfBounds()) {
+    } else if (
+      input.includes("ArrowDown") &&
+      !this.downOutOfBounds() &&
+      !this.game.collide(this.x, this.y + 2)
+    ) {
       this.y += 2;
       this.cycleFrames(deltaTime);
-    } else if (input.includes("ArrowUp") && !this.upOutOfBounds()) {
+    } else if (
+      input.includes("ArrowUp") &&
+      !this.upOutOfBounds() &&
+      !this.game.collide(this.x, this.y - 2)
+    ) {
       this.y -= 2;
       this.cycleFrames(deltaTime);
     }
